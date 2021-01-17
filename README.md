@@ -2,15 +2,15 @@
 
 ## About
 This is a personal mini-project where I made a functional Sudoku game using the Tkinter framework.  
-This was as a learning exercise for the Tkinter framework and coding just for fun with recursion.
+This is a learning exercise for the Tkinter framework and coding with recursion for fun.
 
 ## Repo Highlights
 ### 1.  **Full Sudoku Generation Algorithms**  
   sudogen, sudogen1, sudogen2 and sudogen3 are scripts to generate a full sudoku grid (2-D List) using recursive algorithms with some variation between them.  
 ### sudogen
-The most efficient script. It is a greedy and naiive algorithm, building the sudoku grid row by row randomly, choosing a number from a pool of possible values.    
+The most efficient script. It is a greedy and naiive algorithm, building the sudoku grid row by row randomly, choosing a number to populate each cell from a pool of possible values.    
 When there are no solutions possible while building the row, the entire row is thrown away and re-built recursively.   
-There may be a case where no premutation of values in the row can satisfy sudoku rules due to the particualr arrangement of the rpevious row.  
+There may be a case where no permutation of values in the row can satisfy sudoku rules due to the arrangement of the previous row.  
 A recursion counter is used to prevent infinite looping. When its threshold is met, the current row and the row before it are cleared and re-built.  
 
 ### sudogen2
@@ -26,6 +26,6 @@ sudogen3 implements a more thorough backtracking algorithm, tracking all failed 
   The graphs made with matplotlib will be included in an additional folder soon.
   
 ### 3. Sudoku Game
-  A functional sudoku game is built with the ability to change difficulty and check value correctness.  
+  A functional sudoku game GUI with the ability to change difficulty and check value correctness.  
   For now, the game will only start if sudoku.py is called from the terminal. 
  
