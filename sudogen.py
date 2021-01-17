@@ -1,18 +1,17 @@
 from random import randint
 """
-SUDOKU (SOLUTION) BOARD GENERATION v0.2
+SUDOKU (SOLUTION) BOARD GENERATION
 1. Sudoku board is built row by row with recursion
 2. For every cell, its row, square and col value availability is checked
 3. If no solution can be found, the row is re-built via recursion
-4. If row is re-built too many times (500), break out of recursion..
+4. If the row is re-built too many times, break out of the recursion
 4a. ..and re-build the row before.
 5. Continue until every row is built.
 
 There is some RNG involved for every iteration as
 the row-generating algorithm is not aware what extra constraints are
 added when it inserts a randomly chosen value in. The extra constraints
-may make the sdku unsolvable, hence the need to backtrack.
-
+may make the sdku unsolvable from the get-go, hence the need to move back a row.
 """
 __recursionCounter = 0
 __timesCalled = 0
@@ -88,7 +87,6 @@ def generateRow(rowIndex, sudokuGrid):
 
 # Driver function to generate rows and manage recurion errors
 def generateSudoku():
-    # Reset times called for analysis purposes
     global __timesCalled
     __timesCalled = 0
     grid = [

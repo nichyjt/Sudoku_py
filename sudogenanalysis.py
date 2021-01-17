@@ -111,4 +111,3 @@ def generateBoxWhisker():
     plt.show()
 
     
-genSudo1Box()

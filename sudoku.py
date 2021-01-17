@@ -6,7 +6,6 @@ import sudodatahandler as sdh
 
 root = Tk()
 root.title("Sudoku")
-# Geometry to keep window static
 root.resizable(False, False)
 
 # NOTE, widget.grid dictates the layout of widgets. If grid is not invoked it is not shown
@@ -86,12 +85,9 @@ class Main:
         
         diffOptions = ('Easy', 'Medium', 'Hard')
         self.difficultyVar = StringVar()
-        #self.difficultyVar.set(diffOptions[0])
         self.difficultyPicker = ttk.OptionMenu(self.topFrame, self.difficultyVar, diffOptions[0],\
              *diffOptions, style='optionStyle.TMenubutton')
         self.difficultyPicker.grid(column = 3, row = 0, columnspan=3, sticky=E)
-        #self.buttonPlaceholder = ttk.Label(self.mainframe, text="Buttons will be placed here soon")
-        #self.buttonPlaceholder.grid(column = 0, row =2)
         
         # SudoBoardFrame
         self.sudoFrame = ttk.Frame(self.mainframe, padding = '10', style = 'sudoFrame.TFrame')
@@ -129,7 +125,6 @@ class Main:
                     entryCell.setEntryObject(entry_ui)
                     self.entries.append(entryCell)
         # Use an empty frame as a divider
-        # This took too long
         for i in range(1,16,2):
             if(i==5 or i==11 or i==16):
                 hori = Frame(self.sudoFrame, bg='black', height = 3)
@@ -157,7 +152,7 @@ class Main:
             else:
                 entry.entryUI.config(bg='light green')
         if not wrong:
-            # TODO Congratulations dialog?
+            # TODO Congratulations dialog
             print("You win!")
 
     

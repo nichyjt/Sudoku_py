@@ -132,7 +132,6 @@ def generateSudoku():
             specificIndex = 0
             i+=1
     __blacklistedVals = make_new_blacklist()
-    #print("------------------DONE--------------------")
     return grid
 
 # Clear the blacklist for the row and try again
@@ -146,7 +145,7 @@ def backtrackRow(rowIndex):
 # Rare edge case whereby the backtrack cycles about a cell. The rows are built with no solution.
 # This case + others caught by the infiniteLoop flag.
 def backtrackCell(rowIndex, colIndex, grid, infiniteLoop):
-    #print('Curr Coords: ' + str(rowIndex)+', '+str(colIndex))
+    # print('Curr Coords: ' + str(rowIndex)+', '+str(colIndex))
     if(colIndex<0):
         rowIndex = backtrackRow(rowIndex)
         colIndex = 8

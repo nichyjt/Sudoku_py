@@ -29,8 +29,6 @@ def popClues(sudokuGrid, numClues)->list:
     """
     Remove answers from the full sudoku board to create a game.
     """
-    # Not hackerman enough to implement sample function myself
-    # O(numClues) -> sample()
     popList = sample([i for i in range(0,81)], 81-numClues)
     for num in popList:
         row, col = int(num/9), int(num%9) 
@@ -43,15 +41,12 @@ def deepCopySudo(grid)-> list:
     Returns a deep copy list of a sudoku grid.
     """
     # An alternative is if the indexes and answers are stored in a dict to save memory.
-    
     newGrid = [[0 for j in range(9)]for i in range(9)]
     for i in range(9):
         for j in range(9):
             newGrid[i][j] = grid[i][j]
-        #print(newGrid[i])
     return newGrid
 
-# TODO answer checking
 def debug():
     sdku = sg.generateSudoku()
     game = deepCopySudo(sdku)

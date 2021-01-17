@@ -1,7 +1,7 @@
 from random import randint
 """
-SUDOKU (SOLUTION) BOARD GENERATION 1.1
-This module is a copy of sudogen. The aim is to vary the recursion limit and see how
+SUDOKU (SOLUTION) BOARD GENERATION
+This module is a copy of sudogen. This script varies the recursion limit to see how
 it affects the variance and performance of the alg.
 """
 recursionCounter = 0
@@ -60,8 +60,6 @@ def generateRow(rowIndex, sudokuGrid):
     global __recursionLimit
 
     if(recursionCounter>__recursionLimit):
-        # Break recursion to backtrack row
-        # Arbitrary number chosen 
         return
     for i in range(9):
         pool = getAvailValues(rowIndex, i, sudokuGrid)
@@ -80,7 +78,7 @@ def generateRow(rowIndex, sudokuGrid):
     # Row is built
     #print("Row Built!")
 
-# Driver function to generate rows and manage recurion errors
+# Driver function to generate rows and manage recursion errors
 def generateSudoku():
     # For testing
     global __timesCalled

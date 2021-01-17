@@ -3,12 +3,10 @@ from random import randint
 # This generator backtracks one value at a time rather than retrying a new row
 """
 SUDOGEN 2.0
-This sudoku board generator does not re-do rows
+This sudoku board generator does not immediately re-do rows
 This algorithm backtracks cell by cell and keeps testing for pool values, blacklisting 
-However, this algorithm does not keep track of previous *row* blacklists
-A master blacklist list might improve efficiency
+However, this algorithm does not keep track of previous row blacklists
 """
-# [[],[],[],[],[],[],[],[],[]]
 __blacklistedVals = [[0 for x in range(10)] for x in range(9)]
 __timesCalled = 0
 
@@ -39,7 +37,6 @@ def getAvailValues(rowIndex, colIndex, grid):
     __timesCalled +=1
     vmap = [0 for x in range(10)] #0-9 so 10 vals
     sqLim = getSquareLimits(rowIndex, colIndex)
-    # Disgusting time complexity
     # Logs occurences in row
     for i in range(0,colIndex+1):
         vmap[grid[rowIndex][i]] +=1
@@ -59,11 +56,10 @@ def getAvailValues(rowIndex, colIndex, grid):
 # Generate the sudoku board row in accordance with sdku rules
 def generateRow(rowIndex, grid):
     global __blacklistedVals
-
     i = 0
     # Cell controller
     while i<9:
-        #print("Curr Coords: "+str(rowIndex)+', '+str(i))
+        # print("Curr Coords: "+str(rowIndex)+', '+str(i))
         pool = getAvailValues(rowIndex, i, grid)
         # Recursion managed by the global counter field
         if(len(pool)==0):
@@ -82,7 +78,7 @@ def generateRow(rowIndex, grid):
             grid[rowIndex][i] = pool[rdi]
             i+=1
     # Row is built
-    #print("Row Built!")
+    # print("Row Built!")
     return False
 
 # Driver function to generate rows and manage recurion errors
@@ -117,7 +113,6 @@ def generateSudoku():
 def getCalls():
     global __timesCalled
     return __timesCalled
-
 
 def debug():
     for row in generateSudoku():
