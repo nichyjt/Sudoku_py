@@ -1,11 +1,9 @@
 from random import randint
 
-# This generator backtracks one value at a time rather than re-building the row.
 """
 SUDOGEN 3.0
-This sudoku board generator implements a more complete blacklist history.
-The algorithm retains previous rows' blacklists so that when a row backtracks,
-'Failable' values are excluded from the pool.
+This sudoku board generator implements a more complete blacklist.
+The algorithm retains every cell's blacklist/failed values to enable thorough backtracking.
 This comes at a high cost of space efficiency as the blacklist is 3 layers deep
 """
 # Reset blacklist for bulk fn calls
@@ -81,7 +79,6 @@ def generateRow(rowIndex, grid, index):
                 rdi = rdi%len(pool)
             grid[rowIndex][index] = pool[rdi]
             index+=1
-    # Row is built
     #print("Row Built!")
     return False
 
@@ -109,7 +106,6 @@ def generateSudoku():
     new_coords = []
     while i<9:
         if generateRow(i, grid, specificIndex):
-            # recursion loops forever when the cell's pool is only 1 value when it backtracks
             # print("Recursion Start")
             i = backtrackRow(i)
             if i<0:
@@ -141,12 +137,14 @@ def backtrackRow(rowIndex):
     __blacklistedVals[rowIndex] = [[0 for x in range(10)] for y in range(9)]
     return rowIndex-1
 
-# Backtrack cell by cell until we have a pool of > 1
+# Backtrack cell by cell until we have a pool of > 1 possible value
 # Rare edge case whereby the backtrack cycles about a cell. The rows are built with no solution.
-# This case + others caught by the infiniteLoop flag.
+# This case + other unknown edge cases are caught by the infiniteLoop flag.
 def backtrackCell(rowIndex, colIndex, grid, infiniteLoop):
+    """Backtrack one cell back to test if other values result in a valid solution"""
     # print('Curr Coords: ' + str(rowIndex)+', '+str(colIndex))
     if(colIndex<0):
+        # Backtrack a row as current row has no solution
         rowIndex = backtrackRow(rowIndex)
         colIndex = 8
     pool = getAvailValues(rowIndex, colIndex, grid)
@@ -162,7 +160,7 @@ def getCalls():
     global __timesCalled
     return __timesCalled
 
-# Debug
+# Debug Fns
 def printBoard():
     for i in range(3):
         sudo = generateSudoku()

@@ -4,12 +4,11 @@ from random import randint, sample
 
 """
 SUDO DATA HANDLER
-This module helps generate sudoku games and validates answers.
-NOTE: Although a game may have multiple solutions, this implementation is lazy.
-It will only check values against its answer key.
+This module generates a full sudoku board and randomly pops values off to make a game.
+NOTE: The answer checking implementation is lazy. It is not dynamic, and only checks inputs against the original board.
 """
 
-def getSudokuData(difficulty:str='Easy'):
+def getSudokuData(difficulty:str='Easy')->tuple:
     """
     Returns a tuple (game:list, answer:list) containing a new game and its answer key.
     """
@@ -40,7 +39,7 @@ def deepCopySudo(grid)-> list:
     """
     Returns a deep copy list of a sudoku grid.
     """
-    # An alternative is if the indexes and answers are stored in a dict to save memory.
+    # Alternatively, only save answers & their indexes in a dict to save memory.
     newGrid = [[0 for j in range(9)]for i in range(9)]
     for i in range(9):
         for j in range(9):
@@ -53,4 +52,3 @@ def debug():
     game = popClues(game, 80)
     for rowA, rowB in zip(game, sdku):
         print(str(rowA)+"|"+str(rowB))
-

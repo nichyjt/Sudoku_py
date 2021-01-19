@@ -75,7 +75,6 @@ def generateRow(rowIndex, sudokuGrid):
             if rdi >= len(pool):
                 rdi = rdi%len(pool)
             sudokuGrid[rowIndex][i] = pool[rdi]
-    # Row is built
     #print("Row Built!")
 
 # Driver function to generate rows and manage recursion errors
@@ -114,7 +113,7 @@ def getCalls():
     global __timesCalled
     return __timesCalled
 
-# Debug. Print to terminal the sudoku board
+# Debug
 def debug():
     for row in generateSudoku():
         print(row)

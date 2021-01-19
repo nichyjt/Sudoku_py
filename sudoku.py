@@ -152,8 +152,8 @@ class Main:
             else:
                 entry.entryUI.config(bg='light green')
         if not wrong:
-            # TODO Congratulations dialog
-            print("You win!")
+            dialog = messagebox.showinfo(title='Complete',\
+                message ='Sudoku solved!\nStart a new game by pressing \'New Game\'.')
 
     
     def clearBoard(self):

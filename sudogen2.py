@@ -4,8 +4,8 @@ from random import randint
 """
 SUDOGEN 2.0
 This sudoku board generator does not immediately re-do rows
-This algorithm backtracks cell by cell and keeps testing for pool values, blacklisting 
-However, this algorithm does not keep track of previous row blacklists
+This algorithm backtracks each cell in the current row, blacklisting failed values.
+This algorithm does not keep track of previous row blacklists.
 """
 __blacklistedVals = [[0 for x in range(10)] for x in range(9)]
 __timesCalled = 0
@@ -63,7 +63,7 @@ def generateRow(rowIndex, grid):
         pool = getAvailValues(rowIndex, i, grid)
         # Recursion managed by the global counter field
         if(len(pool)==0):
-            # No solution. Backtrack one step, blacklist the prev value and try again
+            # No solution. Backtrack one cell, blacklist the prev value and try again
             # print("Inner Backtracked")
             __blacklistedVals[i] = [0 for x in range(10)]
             i-=1
@@ -77,7 +77,6 @@ def generateRow(rowIndex, grid):
                 rdi = rdi%len(pool)
             grid[rowIndex][i] = pool[rdi]
             i+=1
-    # Row is built
     # print("Row Built!")
     return False
 

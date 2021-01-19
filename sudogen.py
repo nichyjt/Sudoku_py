@@ -2,10 +2,10 @@ from random import randint
 """
 SUDOKU (SOLUTION) BOARD GENERATION
 1. Sudoku board is built row by row with recursion
-2. For every cell, its row, square and col value availability is checked
+2. For every cell, its row, square and col possible values are checked
 3. If no solution can be found, the row is re-built via recursion
 4. If the row is re-built too many times, break out of the recursion
-4a. ..and re-build the row before.
+and re-build the row before.
 5. Continue until every row is built.
 
 There is some RNG involved for every iteration as
@@ -82,7 +82,6 @@ def generateRow(rowIndex, sudokuGrid):
             if rdi >= len(pool):
                 rdi = rdi%len(pool)
             sudokuGrid[rowIndex][i] = pool[rdi]
-    # Row is built
     # print("Row Built!")
 
 # Driver function to generate rows and manage recurion errors
@@ -119,9 +118,6 @@ def getCalls():
 
 # Debug
 def sudoku_debug():
-    """
-    Prints out the sudoku board for debugging purposes
-    """
     sudo = generateSudoku()
     for row in sudo:
         print(row)

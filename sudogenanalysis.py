@@ -9,8 +9,9 @@ import sudogen3 as sg3
 
 
 """
-This module's aim is to analyse number of calls made per algorithm
+This module' analyses the number of calls made per algorithm
 """
+
 sudo1calls = []
 sudo1_10calls = []
 sudo1_20calls = []
