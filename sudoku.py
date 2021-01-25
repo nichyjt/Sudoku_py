@@ -151,7 +151,6 @@ class Main:
                 entry.entryUI.config(bg='tomato')
             else:
                 entry.entryUI.config(bg='light green')
-            print(wrong)
         if not wrong:
             dialog = messagebox.showinfo(title='Well Played!',\
                 message ='Sudoku solved!\nStart a new game by pressing \'New Game\'.')
