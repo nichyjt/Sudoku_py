@@ -139,25 +139,26 @@ class Main:
         """
         Highlights answers in the grid that are wrong.
         """
+        wrong = False
         for entry in self.entries:
-            wrong = False
             val = entry.entryStr.get()
             if val == '':
-                wrong = not wrong
+                wrong = True
                 continue
             rowIndex, colIndex = entry.getEntryCoords()
             if self.gameData.answer[rowIndex][colIndex] != int(val):
-                wrong = not wrong
+                wrong = True
                 entry.entryUI.config(bg='tomato')
             else:
                 entry.entryUI.config(bg='light green')
+            print(wrong)
         if not wrong:
-            dialog = messagebox.showinfo(title='Complete',\
+            dialog = messagebox.showinfo(title='Well Played!',\
                 message ='Sudoku solved!\nStart a new game by pressing \'New Game\'.')
 
     
     def clearBoard(self):
-        dialog = messagebox.askquestion(title='Clear Board',\
+        dialog = messagebox.askyesno(title='Clear Board',\
             message ='This cannot be undone. Clear board?')
         if dialog:
             for entry in self.entries:
