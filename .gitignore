@@ -1,2 +1,5 @@
 /Progress Snippets
 /__pycache__
+__pycache__/sudogen2.cpython-39.pyc
+.gitignore
+__pycache__/sudogen3.cpython-39.pyc
