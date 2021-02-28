@@ -10,7 +10,7 @@ The Figure 1 set of graphs contain scatters of each sudogen script to the number
 
 ### Figure 2
 The Figure 2 set of graphs contain box plots of each sudogen script.
-It is clearly seen than the efficiency of sudogen1>sudogen2>sudogen3.  
+It is clearly seen that in terms of efficiency, sudogen1 > sudogen2 > sudogen3.  
 
 ### Figure 3
 The Figure 3 set of graphs contain box plots of sudogen1 variations.
