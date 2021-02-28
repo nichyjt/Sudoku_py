@@ -4,6 +4,13 @@
 This is a personal mini-project where I made a functional Sudoku game using the Tkinter framework.  
 This is a learning exercise for Tkinter and coding with recursion for fun.
 
+### Pre-Requsites / Dependencies
+1. Tkinter
+2. Python 3.9
+3. Pandas, Numpy and Matplotlib for `sudogenanalysis`
+
+This build was tested on a Windows 10 machine.
+
 ## Repo Highlights
 ### 1.  **Full Sudoku Board Algorithms**  
   sudogen, sudogen1, sudogen2 and sudogen3 are scripts to generate a full sudoku grid (2D List) using recursive algorithms with some variation between them.  
@@ -29,3 +36,9 @@ sudogen3 implements a more thorough backtracking algorithm, tracking all failed 
   A functional Sudoku GUI game with the ability to change difficulty and check value correctness.  
   For now, the game will only start if sudoku.py is called from the terminal. 
  
+## How to play
+If you wish to play the game:
+
+1. Ensure you have the pre-requisites as mentioned above first.
+2. Download `sudogen.py`, `sudoku.py` and `sudodatahandler`
+3. Run sudoku.py
