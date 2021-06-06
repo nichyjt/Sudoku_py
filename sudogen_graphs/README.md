@@ -16,3 +16,5 @@ It is clearly seen that in terms of efficiency, sudogen1 > sudogen2 > sudogen3.
 The Figure 3 set of graphs contain box plots of sudogen1 variations.
 'Rec Lim' refers to the number of recursions for `generateRow` is allowed before giving up and throwing away the entire row.
 'Control' refers to `sudogen.py` where the recursion limit = 9.
+
+Sudogen_Box and Sudogen_Scatter are image-scaled graphs for website use.
