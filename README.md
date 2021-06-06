@@ -30,7 +30,7 @@ sudogen3 implements a more thorough backtracking algorithm, tracking all failed 
 ### 2. Algorithm Analysis 
   I compared the efficiency of the algorithms based on how many ```getAvailValues()``` calls are made to generate the matrix. (sudogenanalysis.py)  
   Each function call relates to how many cells have been built.
-  The graphs made with matplotlib will be included in an additional folder soon.
+  The graphs made with matplotlib are included in /sudogen_graphs.
   
 ### 3. Sudoku Game
   A functional Sudoku GUI game with the ability to change difficulty and check value correctness.  
